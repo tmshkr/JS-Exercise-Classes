@@ -219,9 +219,13 @@ describe("Instance of Instructor", () => {
     );
   });
   it("[10] can modify a student's grade value", () => {
-    expect(
-      instructor.grade({ name: "Foobar Bazman", grade: 39 }, "node", 3)
-    ).to.include(42);
+    const student = { name: "Foobar Bazman", grade: 42 };
+    const prevGrade = student.grade;
+    const grade = Math.ceil(Math.random() * 3);
+
+    expect(instructor.grade(student, "node", grade)).to.include(
+      prevGrade + grade
+    );
   });
 });
 
