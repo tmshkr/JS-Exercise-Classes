@@ -188,11 +188,9 @@ class Student extends Lambdasian {
   }
 
   graduate() {
-    if (this.grade >= 70 && this.sprintsAttempted <= 33) {
-      return (this.graduated = true);
-    } else {
-      return (this.graduated = false);
-    }
+    return this.grade >= 70 && this.sprintsAttempted <= 33
+      ? (this.graduated = true)
+      : (this.graduated = false);
   }
 
   listSubjects() {
